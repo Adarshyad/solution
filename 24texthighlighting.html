@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+</head>
+<body>
+    <div id="para">Lorem ipsum dolor sit amet cetur, adipisicing elit. Magni, dolore quasi? Dolorem similique, sequi fuga vero id adipisci cupiditate consequuntur possimus exer Partur sed voluptatem dole lorum expabo enim, dolorem, fugit, quia aliquam rerum sapiente? Quae eveniet saepe cupiditate possimus.</div>
+    <script>
+        window.onload = function(){
+           const check = (word) => {
+                if(word.length > 8){
+                    return '<span style="background:yellow;">' + word + '</span>'
+                } else {
+                    return word
+                }
+            }
+            const str = document.querySelector("#para").innerText
+            const newt = str.trim().split(' ').map(check).join(' ')
+            document.querySelector("#para").innerHTML = newt
+        }
+    </script>
+</body>
+</html>

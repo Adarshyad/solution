@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Cost Calculator</title>
+    <style>
+        .rent {
+            margin-left: 450px;
+            margin-top: 120px;
+            background-color: rgb(8, 202, 137);
+            border: 3px solid black;
+            width: 600px;
+            height: 380px;
+            text-align: center;
+            border-radius: 30px;
+        }
+        h3 {
+            font-size: 30px;
+        }
+        p {
+            font-weight: bold;
+        }
+        input {
+            background-color: rgb(159, 220, 233);
+            border: none;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 10px;
+            width: 100px;
+            height: 30px;
+            border: none;
+            border-radius: 20px;
+            background: blueviolet;
+            color: white;
+            font-weight: bold;
+        }
+        div {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        #display {
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="rent">
+        <h3>Rental Cost Calculator</h3>
+        <p>Number of Days: <input type="number" id="days"></p>
+        <p>Car type: <input type="text" id="carType"></p>
+        <button>Click Here</button>
+        <div>Total Cost: <span id="display"></span></div>
+    </div>
+    <script>
+        const days = document.getElementById('days')
+        const carType = document.getElementById('carType')
+        const btn = document.querySelector("button")
+        const display = document.getElementById('display')
+        btn.addEventListener('click', () => {
+            switch(carType.value){
+                case "Economy":
+                case "economy":
+                      display.innerText = days.value * 4000
+                      break;
+                case "Midsize":
+                case "midsize":
+                      display.innerText = days.value * 10000
+                      break;
+                case "Luxury":
+                case "luxury":
+                      display.innerText = days.value * 20000
+                      break;
+                default:
+                    display.innerText = "Invalid!"
+                    display.style.color = "red"
+            }
+        })
+    </script>
+</body>
+</html>

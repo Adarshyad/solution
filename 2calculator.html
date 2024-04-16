@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgb(72, 150, 223);
+            position: fixed;
+        }
+
+        .cal {
+            border: 5px solid black;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+            border-radius: 10px;
+        }
+
+        .cal h1 {
+            margin-top: 10px;
+        }
+
+        .cal p {
+            margin-top: 10px;
+            text-align: justify;
+            margin-left: 30px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 150px;
+            padding: 5px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: rgb(5, 58, 60);
+        }
+
+        #display {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cal">
+        <h1>Calculator</h1>
+        <p>Enter First number: <input type="number" id="first"></p>
+        <p>Enter Second number: <input type="number" id="second"></p>
+        <p>Enter operator (+,-,*,/): <input type="string" id="third"></p>
+        <button id="four">Click to get result</button>
+        <p>Result: <span id="display"></span></p>
+    </div>
+    <script>
+        const first = document.getElementById('first')
+        const second = document.getElementById('second')
+        const third = document.getElementById('third')
+        const four = document.getElementById('four')
+        const display = document.getElementById('display')
+
+        four.addEventListener('click', () => {
+            let op = third.value
+            switch (op) {
+                case '+':
+                    display.innerText = Number(first.value) + Number(second.value)
+                    break;
+                case '-':
+                    display.innerText = Number(first.value) - Number(second.value)
+                    break;
+                case '*':
+                    display.innerText = Number(first.value) * Number(second.value)
+                    break;
+                case '/':
+                    display.innerText = Number(first.value) / Number(second.value)
+                    break;
+                default:
+                    display.innerText = "Invalid input!"
+            }
+        })
+    </script>
+</body>
+
+</html>

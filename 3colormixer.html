@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Mixer</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            position: fixed;
+            background-color: rgb(52, 127, 188);
+        }
+        .colormix {
+            border: 5px solid black;
+            width: 400px;
+            height: 250px;
+            margin-left: 500px;
+            margin-top: 200px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .colormix h1 {
+            margin-top: 20px;
+            color: rgb(15, 206, 200);
+        }
+        .colormix p {
+            text-align: justify;
+            margin-top: 10px;
+            margin-left: 60px;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 20px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            width: 150px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        div {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #display{
+            color: white;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="colormix">
+        <h1>Color Mixer</h1>
+        <p>Color1: <input type="string" id="color1"></p>
+        <p>Color2: <input type="string" id="color2"></p>
+        <button id="btn">Check Output</button>
+        <div>Output: <span id="display"></span></div>
+    </div>
+    <script>
+        const color1 = document.getElementById('color1')
+        const color2 = document.getElementById('color2')
+        const btn = document.getElementById('btn')
+        const display = document.getElementById('display')
+        btn.addEventListener('click', () => {
+            let c1 = color1.value 
+            let c2 = color2.value
+            if((c1 == "red") && (c2 == "blue")){
+                display.innerText = "purple"
+                document.querySelector('body').style.backgroundColor = "purple"
+            }
+            else if((c1 == "red") && (c2 == "yellow")){
+                display.innerText = "orange"
+                document.querySelector('body').style.backgroundColor = "orange"
+            }
+            else if ((c1 == "blue") && (c2 == "yellow")){
+                display.innerText = "green"
+                document.querySelector('body').style.backgroundColor = "green"
+            }
+            else{
+                display.innerText = "invalid color combination"
+            }
+        })
+    </script>
+</body>
+</html>

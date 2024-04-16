@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image move</title>
+</head>
+<style>
+    .circle {
+        height: 300px;
+        width: 300px;
+    }
+</style>
+
+<body>
+    <img src="./cute-boy-cartoon-7902892_1280.webp" alt="" class="circle">
+    <script>
+        const circle = document.querySelector('.circle')
+        let move = 10;
+        window.addEventListener('load', () => {
+            circle.style.position = 'absolute';
+            circle.style.left = 0;
+            circle.style.top = 0;
+        })
+        window.addEventListener('keyup', (e) => {
+            switch (e.key) {
+                case "ArrowLeft":
+                    circle.style.left = parseInt(circle.style.left) - move + 'px';
+                    break;
+                case "ArrowRight":
+                    circle.style.left = parseInt(circle.style.left) + move + 'px';
+                    break;
+                case "ArrowUp":
+                    circle.style.top = parseInt(circle.style.top) - move + 'px';
+                    break;
+                case "ArrowDown":
+                    circle.style.top = parseInt(circle.style.top) + move + 'px';
+                    break;
+            }
+        })
+    </script>
+</body>
+
+</html>

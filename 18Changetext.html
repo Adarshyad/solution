@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: yellowgreen;
+            text-align: center;
+        }
+        h3 {
+            margin-top: 50px;
+        }
+        button {
+            margin-top: 100px;
+            padding: 5px;
+            width: 100px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="text">The most affordable learning platform</h3>
+    <button>Click here</button>
+    <script>
+        const text = document.getElementById("text")
+        const btn = document.querySelector("button")
+        btn.addEventListener("click", () => {
+            if(text.innerText === "The most affordable learning platform"){
+                text.innerText = "PW Skills"
+            }
+            else {
+                text.innerText = "The most affordable learning platform"
+            }
+        })
+    </script>
+</body>
+</html>

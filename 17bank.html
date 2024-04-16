@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank application</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+        h3 {
+           text-align: center;
+           margin-top: 100px;
+           font-size: 20px;
+        }
+        .bank {
+            background-color: aquamarine;
+            border: 2px solid black;
+            width: 450px;
+            height: 200px;
+            border-radius: 10px;
+            margin-top: 100px;
+            margin-left: 520px;
+        }
+        .detail {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 30px;
+            margin-left: 20px;
+            width: 150px;
+            height: 25px;
+            border: none;
+            border-radius: 10px;
+        }
+        #amount {
+            border: none;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+        #deposit {
+            background-color: rgb(6, 190, 119);
+            color: aliceblue;
+            font-weight: bold;
+        }
+        #withdraw {
+            background-color: hsl(28, 77%, 48%);
+            font-weight: bold;
+        }
+        .balance {
+            margin-top: 30px;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>Bank Of Tech</h3>
+    <div class="bank">
+        <div class="detail">Enter your amount:<input type="number" id="amount"></div>
+        <div>
+            <button id="deposit">Deposit</button>
+            <button id="withdraw">Withdraw</button>
+        </div>
+        <div class="balance">Your Balance: <span id="display"></span></div>
+    </div>
+    <script>
+        const amount = document.getElementById("amount")
+        const deposit = document.getElementById('deposit')
+        const withdraw = document.getElementById('withdraw')
+        const display = document.getElementById('display')
+        let customerDetail = {'name': 'adarsh', 'balance':0}
+        deposit.addEventListener('click', () => {
+            customerDetail.balance = Number(customerDetail.balance) + Number(amount.value )
+            display.innerText = customerDetail.balance
+            display.style.color = "green"
+        })
+        withdraw.addEventListener('click', () => {
+            if (Number(customerDetail.balance) > Number(amount.value)){
+                customerDetail.balance = Number(customerDetail.balance) - Number(amount.value )
+                display.innerText = customerDetail.balance
+                display.style.color = "purple"
+            }
+            else{
+                display.innerText = "Insufficient Balance!"
+                display.style.color = "red"
+            }
+        })
+
+    </script>
+</body>
+</html>
